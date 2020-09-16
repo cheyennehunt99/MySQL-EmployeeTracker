@@ -19,7 +19,7 @@ function mainPrompt() {
         switch (answer.choice) {
 
             case "View all departments":
-                viewAllDept();
+                viewAllDepartments();
                 break;
 
             case "View all roles":
@@ -28,6 +28,10 @@ function mainPrompt() {
             
             case "View all employees":
                 viewAllEmployees();
+                break;
+
+            case "Add department":
+                addNewDepartment();
                 break;
     
             case "Add role":
@@ -49,12 +53,12 @@ function mainPrompt() {
     });
 };
 
-async function viewAllDept() {
+async function viewAllDepartments() {
 
-    const depts = await db.viewAllDept();
+    const departments = await db.viewAllDepartments();
 
     console.log('/n');
-    console.table(depts);
+    console.table(departments);
 
     mainPrompt();
 };
@@ -80,14 +84,14 @@ async function viewAllEmployees() {
     mainPrompt();
 };
 
-async function addNewDept() { 
-    inquirer.prompt(prompts.newDeptPrompt).then((response) => {
+async function addNewDepartment() { 
+    inquirer.prompt(prompts.newDepartmentPrompt).then((response) => {
         connection.query(
         `
         INSERT INTO department
             (name)
         VALUES
-            ('${response.newDeptName}');
+            ('${response.newDepartmentName}');
         `
         );
 

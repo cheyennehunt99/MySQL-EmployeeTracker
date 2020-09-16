@@ -3,11 +3,13 @@
 const util = require('util');
 const mysql = require('mysql');
 
+//you will need to create a DB in MySQL
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'your own password', //your password to MySQL
-    database: 'employeetracker_db' //create the DB in MySQL
+    password: 'your password!', //your own password to MySQL
+    database: 'employeetracker_db' //create this DB in MySQL
 });
 
 connection.connect();

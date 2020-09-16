@@ -7,6 +7,19 @@ class DB {
         this.connection = connection;
     }
 
+    viewAllDepartments() {
+        return this.connection.query(
+        `
+        SELECT 
+            department.id AS ID, 
+            department.name AS Name 
+        FROM 
+            department;
+        `
+        );
+        
+    }
+
     viewAllRoles() {
         return this.connection.query(
         `
@@ -24,22 +37,8 @@ class DB {
         `
         );
         
-    }
+    } 
     
-    // The function that fetches the data to view all departments
-    viewAllDept() {
-        return this.connection.query(
-        `
-        SELECT 
-            department.id AS ID, 
-            department.name AS Name 
-        FROM 
-            department;
-        `
-        );
-        
-    }
-
     viewAllEmployees() {
         return this.connection.query(
         `

@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
 module.exports = {
-
     mainPrompt: [{
     type: "list",
     message: `What would you like to do?`,
@@ -18,12 +17,30 @@ module.exports = {
     ]
 }],
 
-newDeptPrompt:
+newDepartmentPrompt:
     {
     type: "input",
     message: `Input a new department name.`,
-    name: "newDeptName",
+    name: "newDepartmentName",
     },
+
+newRolePrompt: [
+    {
+    type: "input",
+    message: `Input a new role title.`,
+    name: "newRoleTitle",
+    }, 
+    {
+        type: "input",
+        message: `Input the salary of the new role.`,
+        name: "newRoleSalary",
+    },
+    {
+        type: "input",
+        message: `Input the department ID of the new role.`,
+        name: "newRoleID",
+    }
+],
 
 newEmployeePrompt: [
     {
@@ -47,24 +64,6 @@ newEmployeePrompt: [
     name: "employeeManagerID",
     }
     ],
-
-newRolePrompt: [
-    {
-    type: "input",
-    message: `Input a new role title.`,
-    name: "newRoleTitle",
-    }, 
-    {
-        type: "input",
-        message: `Input the salary of the new role.`,
-        name: "newRoleSalary",
-    },
-    {
-        type: "input",
-        message: `Input the department ID of the new role.`,
-        name: "newRoleID",
-    }
-],
 
     updateRolePrompt: [
         {
