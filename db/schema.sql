@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS employeetracker_db;
+
 CREATE DATABASE employeetracker_db;
 
 USE employeetracker_db;
@@ -25,3 +26,4 @@ CREATE TABLE employee (
   CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE CASCADE,
   CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
+
