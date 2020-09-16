@@ -18,7 +18,6 @@ module.exports = {
     ]
 }],
 
-// Prompts for adding a new department
 newDeptPrompt:
     {
     type: "input",
@@ -26,7 +25,6 @@ newDeptPrompt:
     name: "newDeptName",
     },
 
-// Prompt for adding new employees
 newEmployeePrompt: [
     {
     type: "input",
@@ -50,7 +48,6 @@ newEmployeePrompt: [
     }
     ],
 
-// The prompt for when the user chooses to add a new role
 newRolePrompt: [
     {
     type: "input",
@@ -69,7 +66,6 @@ newRolePrompt: [
     }
 ],
 
-// Prompt to update employees
     updateRolePrompt: [
         {
         type: "input",

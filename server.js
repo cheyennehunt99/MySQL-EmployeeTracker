@@ -1,5 +1,7 @@
 'use strict';
 
+var cli = require("ascli")("myAppName");
+var colour = require('colour');
 const inquirer = require('inquirer');
 const connection = require('./db/connection');
 const mysql = require('mysql');
@@ -8,6 +10,7 @@ const prompts = require('./prompts');
 const db = require('./db');
 require('console.table');
 
+cli.banner("My employee Tracker".blue.bold);
 
 function mainPrompt() {
     inquirer   
@@ -46,7 +49,6 @@ function mainPrompt() {
     });
 };
 
-// The function to view all departments
 async function viewAllDept() {
 
     const depts = await db.viewAllDept();
@@ -57,7 +59,7 @@ async function viewAllDept() {
     mainPrompt();
 };
 
-// The function that displays all the employee titles (roles)
+
 async function viewAllRoles() {
 
     const titles = await db.viewAllRoles();
@@ -68,7 +70,6 @@ async function viewAllRoles() {
     mainPrompt();
 };
 
-// The function to view all employees
 async function viewAllEmployees() {
 
     const employs = await db.viewAllEmployees();
@@ -79,10 +80,8 @@ async function viewAllEmployees() {
     mainPrompt();
 };
 
-// Function to add a new department
 async function addNewDept() { 
     inquirer.prompt(prompts.newDeptPrompt).then((response) => {
-        // Store the responses in a variable then add them to the db as a new department
         connection.query(
         `
         INSERT INTO department
@@ -99,10 +98,9 @@ async function addNewDept() {
 
 };
 
-// The function to add a new role
 async function addNewRole() { 
     inquirer.prompt(prompts.newRolePrompt).then((response) => {
-        // Store the responses in a variable then add them to the db as a new role
+       
         connection.query(
         `
         INSERT INTO role
@@ -119,10 +117,9 @@ async function addNewRole() {
 
 };
 
-// Function to add a new employee
 async function addNewEmployee() { 
     inquirer.prompt(prompts.newEmployeePrompt).then((response) => {
-        // Store the responses in a variable then add them to the db as a new employee
+        
         connection.query(
         `
         INSERT INTO employee
@@ -139,10 +136,10 @@ async function addNewEmployee() {
 
 };
 
-// Function to update an employee's role ID
+
 async function updateEmployeeRole() { 
     inquirer.prompt(prompts.updateRolePrompt).then((response) => {
-        // Store the responses in a variable then use them to update a role ID for the chosen employee ID
+      
         connection.query(
         `
         UPDATE employee
@@ -157,8 +154,6 @@ async function updateEmployeeRole() {
     });
 
 };
-
-// A switch function that chooses what to do next based on inquirer selections, all functions will then update or display the db as indicated and then call back the mainPrompt()
 
 
 mainPrompt();
