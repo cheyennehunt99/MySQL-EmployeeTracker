@@ -2,12 +2,12 @@
 
 var cli = require("ascli")("myAppName");
 var colour = require('colour');
-const inquirer = require('inquirer');
-const connection = require('./db/connection');
 const mysql = require('mysql');
+const inquirer = require('inquirer');
+const db = require('./db');
+const connection = require('./db/connection');
 const config = require('./package.json');
 const prompts = require('./prompts');
-const db = require('./db');
 require('console.table');
 
 cli.banner("My employee Tracker".blue.bold);
